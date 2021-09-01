@@ -2,8 +2,9 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
 
-import Promo from '../components/Promo/Promo';
+import DrivingSchool from '../components/DrivingSchool/DrivingSchool';
 import Info from '../components/Info/Info';
+import Promo from '../components/Promo/Promo';
 
 import '../styles/index.scss';
 
@@ -16,6 +17,7 @@ const IndexPage = ({ data: { home } }) => {
     <>
       <Promo/>
       <Info/>
+      <DrivingSchool />
     </>
   );
 };
