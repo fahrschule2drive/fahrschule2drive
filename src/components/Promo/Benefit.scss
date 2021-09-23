@@ -1,0 +1,14 @@
+.benefit {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    color: var(--color-white);
+    text-align: center;
+  }
+}
