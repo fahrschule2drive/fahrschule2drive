@@ -48,8 +48,8 @@ const DrivingSchool = () => {
       render={({
         datoCmsDrivingSchool: drivingSchool,
       }) => (
-        <section id={1} className={styles.section} style={{ backgroundImage: `url(${drivingSchool.background.url})` }}>
-          <Wrapper id={2}>
+        <section className={styles.section} style={{ backgroundImage: `url(${drivingSchool.background.url})` }}>
+          <Wrapper>
             <SectionHeader
               className={styles.titleDrivingSchool}
               iconUrl={drivingSchool.titleIcon.url}

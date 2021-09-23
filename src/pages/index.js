@@ -1,26 +1,21 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { makeStyles } from '@material-ui/core';
+import { graphql } from 'gatsby';
 
 import DrivingSchool from '../components/DrivingSchool/DrivingSchool';
 import Info from '../components/Info/Info';
+import OurCars from '../components/OurCars';
 import Promo from '../components/Promo/Promo';
 
 import '../styles/index.scss';
 
-const useStyles = makeStyles(() => ({}));
-
-const IndexPage = ({ data: { home } }) => {
-  const styles = useStyles();
-
-  return (
-    <>
-      <Promo/>
-      <Info/>
-      <DrivingSchool />
-    </>
-  );
-};
+const IndexPage = ({ data: { home } }) => (
+  <>
+    <Promo/>
+    <Info/>
+    <DrivingSchool />
+    <OurCars />
+  </>
+);
 
 export default IndexPage;
 

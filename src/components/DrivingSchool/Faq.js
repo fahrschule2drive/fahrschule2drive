@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
 
+import IconMinus from '../../images/icons/minus.svg';
+import IconPlus from '../../images/icons/plus.svg';
+
 const useStyles = makeStyles(() => ({
   wrapper: {
     '@media screen and (min-width: 768px)': {
@@ -10,7 +13,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   item: {
-    background: 'url(../images/icons/plus.svg) calc(100% - 4px) 20px no-repeat',
+    background: `url(${IconPlus}) calc(100% - 4px) 20px no-repeat`,
     backgroundSize: '20px 20px',
     borderTop: '1px solid var(--color-separator)',
 
@@ -19,7 +22,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   itemActive: {
-    background: 'url(../images/icons/minus.svg) calc(100% - 4px) 20px no-repeat',
+    background: `url(${IconMinus}) calc(100% - 4px) 20px no-repeat`,
     backgroundSize: '20px 20px',
   },
   question: {
@@ -69,7 +72,12 @@ const Faq = () => {
               })}
               key={index}
             >
-              <div className={styles.question} onClick={() => handleClick(index)}>
+              <div
+                className={styles.question}
+                onClick={() => handleClick(index)}
+                role="button"
+                tabIndex="-1"
+              >
                 {item.question}
               </div>
               {activeFaqPoint === index && (
@@ -105,14 +113,3 @@ const query =
   `;
 
 export default Faq;
-
-// <div className={`faq__item ${activeFaqPoint === index && 'faq__item--active'}`} key={index}>
-//   <div className="faq__question" onClick={() => handleClick(index)}>
-//     {item.question}
-//   </div>
-//   {activeFaqPoint === index && (
-//     <div className="faq__answer">
-//       {item.answer}
-//     </div>
-//   )}
-// </div>

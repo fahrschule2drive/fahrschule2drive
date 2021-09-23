@@ -77,3 +77,45 @@ html {
     color: var(--color-primary-text);
   }
 }
+
+// Carousel
+.rec-slider-container {
+  margin: 0 !important;
+}
+
+.rec-arrow {
+  background-color: var(--color-background) !important;
+  border-radius: 50%;
+  border: none;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  z-index: 10;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-primary) !important;
+  }
+
+  &:disabled {
+    display: none;
+  }
+}
+
+.rec-arrow-left {
+  left: 20px;
+
+  @media screen and (min-width: 992px) {
+    left: 40px;
+  }
+}
+
+.rec-arrow-right {
+  right: 20px;
+
+  @media screen and (min-width: 992px) {
+    right: 40px;
+  }
+}

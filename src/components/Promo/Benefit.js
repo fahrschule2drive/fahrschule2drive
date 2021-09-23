@@ -1,12 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
-// Images
-import IconBenefit1 from '../../images/icons/benefit-1.svg';
-import IconBenefit2 from '../../images/icons/benefit-2.svg';
-import IconBenefit3 from '../../images/icons/benefit-3.svg';
-import IconBenefit4 from '../../images/icons/benefit-4.svg';
-
 const useStyles = makeStyles(() => ({
   benefitItem: {
     alignItems: 'center',
