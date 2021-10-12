@@ -57,12 +57,6 @@ const carouselBreakPoints = [
 const OurCars = () => {
   const styles = useStyles();
 
-  const showme = (props) => {
-    console.log(props)
-
-    return null;
-  }
-
   return (
     <StaticQuery
       query={query}
@@ -70,7 +64,6 @@ const OurCars = () => {
         datoCmsCarPark: carPark,
       }) => (
         <div className={styles.wrapper}>
-          {showme(carPark)}
           <Carousel
             breakPoints={carouselBreakPoints}
             isRTL={false}

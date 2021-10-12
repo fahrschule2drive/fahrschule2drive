@@ -1,0 +1,19 @@
+.section-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &__icon {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+
+    @media screen and (max-width: 767px) {
+      transform: scale(.8);
+    }
+
+    &--tutors {
+      height: 56px;
+      width: 56px;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import DrivingSchool from '../components/DrivingSchool/DrivingSchool';
 import Info from '../components/Info/Info';
 import OurCars from '../components/OurCars';
 import Promo from '../components/Promo/Promo';
+import Tutors from '../components/Tutors/Tutors';
 
 import '../styles/index.scss';
 
@@ -14,6 +15,7 @@ const IndexPage = ({ data: { home } }) => (
     <Info/>
     <DrivingSchool />
     <OurCars />
+    <Tutors />
   </>
 );
 
