@@ -2,8 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import DrivingSchool from '../components/DrivingSchool/DrivingSchool';
+import Exam from '../components/Exam';
+import Feedbacks from '../components/Feedbacks';
+import Footer from '../components/Footer/Footer';
 import Info from '../components/Info/Info';
+import Map from '../components/Map';
 import OurCars from '../components/OurCars';
+import PostFooter from '../components/Footer/PostFooter';
+import PreFooter from '../components/Footer/PreFooter';
+import Prices from '../components/Prices';
 import Promo from '../components/Promo/Promo';
 import Tutors from '../components/Tutors/Tutors';
 
@@ -13,9 +20,18 @@ const IndexPage = ({ data: { home } }) => (
   <>
     <Promo/>
     <Info/>
-    <DrivingSchool />
-    <OurCars />
-    <Tutors />
+    <DrivingSchool/>
+    <OurCars/>
+    <Tutors/>
+    <Feedbacks/>
+    <Exam/>
+    <Prices/>
+    <Map/>
+    <footer>
+      <PreFooter/>
+      <Footer/>
+      <PostFooter/>
+    </footer>
   </>
 );
 

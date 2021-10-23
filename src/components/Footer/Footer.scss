@@ -1,0 +1,140 @@
+.footer {
+  border-top: 1px solid var(--color-separator);
+  border-bottom: 1px solid var(--color-separator);
+
+  &__title {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 0 0 0 34px;
+    position: relative;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 992px) {
+      margin-bottom: 30px;
+      font-size: 24px;
+      padding-left: 46px;
+    }
+
+    &:before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 5px;
+      left: 0;
+    }
+
+    &--working-hours {
+      &:before {
+        background: url("../../images/icons/clock.svg") 0 0 no-repeat;
+      }
+    }
+
+    &--app {
+      &:before {
+        background: url("../../images/icons/app.svg") 0 0 no-repeat;
+      }
+    }
+
+    &--kfz {
+      &:before {
+        background: url("../../images/icons/kfz.svg") 0 0 no-repeat;
+      }
+    }
+  }
+
+  &__details {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 992px) {
+      flex-basis: 550px;
+      justify-content: space-between;
+    }
+  }
+
+  .wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 992px) {
+      flex-direction: row;
+      justify-content: space-around;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+}
+
+.working-hours {
+  flex: 0 0 auto;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 992px) {
+    flex-basis: 330px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-basis: 550px;
+  }
+
+  &__list {
+    margin-left: 34px;
+
+    @media screen and (min-width: 992px) {
+      margin-left: 46px;
+    }
+
+    tr {
+      &:not(:last-child) {
+        td {
+          padding-bottom: 16px;
+        }
+      }
+    }
+
+    td {
+      &:first-child {
+        font-weight: 600;
+        padding-right: 40px;
+      }
+    }
+  }
+}
+
+.app {
+  margin-bottom: 46px;
+}
+
+.kfz {
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.kfz,
+.app {
+  p,
+  b {
+    color: var(--color-secondary-text);
+  }
+
+  p {
+    padding-left: 34px;
+
+    @media screen and (min-width: 992px) {
+      padding-left: 46px;
+    }
+  }
+}

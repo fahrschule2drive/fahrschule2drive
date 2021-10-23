@@ -1,0 +1,66 @@
+.post-footer {
+  &__copyright {
+    color: var(--color-secondary-text);
+
+    @media screen and (max-width: 991px) {
+      order: 1;
+      margin-top: 20px;
+    }
+  }
+
+  .wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: 992px) {
+      justify-content: space-between;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+}
+
+.social {
+  display: flex;
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: 30px;
+    }
+
+    a {
+      display: block;
+      width: 30px;
+      height: 30px;
+      opacity: .85;
+      transition: opacity .4s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &--facebook {
+      a {
+        background: url('../../images/icons/facebook.svg') 0 0 no-repeat;
+      }
+    }
+
+    &--instagram {
+      a {
+        background: url('../../images/icons/instagram.svg') 0 0 no-repeat;
+      }
+    }
+
+    &--whatsapp {
+      a {
+        background: url('../../images/icons/whatsapp.svg') 0 0 no-repeat;
+      }
+    }
+  }
+}

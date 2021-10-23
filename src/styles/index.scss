@@ -55,6 +55,25 @@ html {
   }
 }
 
+.overlay {
+  position: relative;
+
+  &:before {
+    background: var(--color-overlay);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .cta {
   background: none;
   border-radius: 25px;

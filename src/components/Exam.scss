@@ -1,0 +1,28 @@
+.exam {
+  background: url('../images/wallpaper-2.webp') center center no-repeat;
+  background-size: cover;
+  padding: 80px 0;
+
+  &__description {
+    margin: 50px 0 80px;
+    padding: 0 110px;
+
+    p {
+      color: var(--color-white);
+      text-align: center;
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header__title {
+    color: var(--color-white);
+  }
+}

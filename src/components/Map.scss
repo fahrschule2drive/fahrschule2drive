@@ -1,0 +1,55 @@
+.map {
+  height: 620px;
+  background: gray;
+
+  .wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.form {
+  width: 629px;
+  border-radius: 10px;
+  background: var(--color-white);
+  box-shadow: 0 4px 4px var(--color-shadow);
+  padding: 30px 30px;
+
+  &__title {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 20px;
+    margin-bottom: 20px;
+  }
+
+  input,
+  textarea {
+    background: var(--color-background);
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: 20px;
+    font-family: inherit;
+    font-size: 16px;
+  }
+
+  input {
+    height: 50px;
+  }
+
+  textarea {
+    resize: none;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-family: inherit;
+    height: 150px;
+  }
+}
