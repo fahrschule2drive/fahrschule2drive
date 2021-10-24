@@ -5,6 +5,7 @@ import DrivingSchool from '../components/DrivingSchool/DrivingSchool';
 import Exam from '../components/Exam';
 import Feedbacks from '../components/Feedbacks';
 import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
 import Info from '../components/Info/Info';
 import Map from '../components/Map';
 import OurCars from '../components/OurCars';
@@ -18,6 +19,7 @@ import '../styles/index.scss';
 
 const IndexPage = ({ data: { home } }) => (
   <>
+    <Header/>
     <Promo/>
     <Info/>
     <DrivingSchool/>

@@ -1,0 +1,33 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 52px 0;
+  z-index: 10;
+
+  .wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  &__logo {
+    width: 190px;
+    height: 67px;
+    background: url("../../images/logo-white.svg") 0 0 no-repeat;
+  }
+}
+
+.nav {
+  margin: 14px auto 0;
+
+  &__item {
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 15px;
+
+    &:not(:last-child) {
+      margin-right: 70px;
+    }
+  }
+}
