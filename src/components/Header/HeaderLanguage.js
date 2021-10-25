@@ -8,22 +8,26 @@ import './HeaderLanguage.scss';
 import IconDeFlag from '../../images/icons/flag-germany.svg';
 import IconUkFlag from '../../images/icons/flag-united-kingdom.svg';
 import IconRuFlag from '../../images/icons/flag-russia.svg';
+import { LanguageContext } from '../../store/context/LanguageContext';
+import { SET_LANGUAGE } from '../../store/actions';
 
 const languagesData = [{
-  abbr: 'DE',
+  abbr: 'de',
   icon: IconDeFlag,
   alt: 'germany flag',
 }, {
-  abbr: 'EN',
+  abbr: 'en',
   icon: IconUkFlag,
   alt: 'united kingdom flag',
 }, {
-  abbr: 'RU',
+  abbr: 'ru',
   icon: IconRuFlag,
   alt: 'russia flag',
 }]
 
 const Header = () => {
+  const languageStore = useContext(LanguageContext);
+
   const [isActive, setActivity] = useState(false);
   const [languages, setLanguages] = useState(languagesData);
 
@@ -46,20 +50,25 @@ const Header = () => {
   };
 
   const handleLanguageClick = language => () => {
-    // if (globalState.state === language) {
-    //   setActivity(!isActive);
-    // } else {
-    //   dispatch({ type: 'action description', language });
-    //   setLanguages(sortLanguages(language))
-    //   setActivity(false);
-    // }
+    if (languageStore.store.language === language) {
+      setActivity(!isActive);
+    } else {
+      languageStore.dispatch({
+        type: SET_LANGUAGE,
+        payload: {
+          language,
+        },
+      });
+      setLanguages(sortLanguages(language));
+      setActivity(false);
+    }
   };
 
   return (
     <div className={`header-language__wrapper ${isActive ? 'header-language__wrapper--active' : ''}`}>
       {languages.map((item, index) => (
         <button className="header-language__item" onClick={handleLanguageClick(item.abbr)} key={index}>
-          <img src={item.icon} alt={item.alt} className={`header-language__icon header-language__icon--${item.abbr.toLowerCase()}`}/>
+          <img src={item.icon} alt={item.alt} className={`header-language__icon header-language__icon--${item.abbr}`}/>
         </button>
       ))}
     </div>

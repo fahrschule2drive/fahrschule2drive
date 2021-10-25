@@ -1,9 +1,8 @@
 import React from 'react';
 
 // Components
-// import Translate from '../utils/Translate';
+import HeaderLanguage from './HeaderLanguage';
 import Wrapper from '../Wrapper';
-import HeaderLanguage from "./HeaderLanguage";
 
 // Styles
 import './Header.scss';

@@ -14,11 +14,12 @@ import PreFooter from '../components/Footer/PreFooter';
 import Prices from '../components/Prices';
 import Promo from '../components/Promo/Promo';
 import Tutors from '../components/Tutors/Tutors';
+import { LanguageContextProvider } from '../store/context/LanguageContext';
 
 import '../styles/index.scss';
 
 const IndexPage = ({ data: { home } }) => (
-  <>
+  <LanguageContextProvider>
     <Header/>
     <Promo/>
     <Info/>
@@ -34,7 +35,7 @@ const IndexPage = ({ data: { home } }) => (
       <Footer/>
       <PostFooter/>
     </footer>
-  </>
+  </LanguageContextProvider>
 );
 
 export default IndexPage;
