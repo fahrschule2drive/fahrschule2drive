@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { graphql, StaticQuery } from 'gatsby';
 
@@ -8,8 +8,12 @@ import Wrapper from '../Wrapper';
 
 // Styles
 import './Tutors.scss';
+import { LanguageContext } from '../../store/context/LanguageContext';
+import { getLocaleValue } from '../../utils';
 
 const Tutors = () => {
+  const languageStore = useContext(LanguageContext);
+
   const renderLanguages = (item) => {
     const tutorLanguages = JSON.parse(item.tutorLanguages);
     if (tutorLanguages &&
@@ -35,36 +39,46 @@ const Tutors = () => {
             <p
               className="tutors__cars-description"
               dangerouslySetInnerHTML={{
-                __html: carPark.galleryDescription,
+                __html: getLocaleValue({
+                  language: languageStore.store.language,
+                  locales: carPark._allGalleryDescriptionLocales,
+                }),
               }}
             />
             <SectionHeader
               className="section-header__icon--tutors"
               iconUrl={tutors.titleIcon.url}
-              title={tutors.title}
+              title={getLocaleValue({
+                language: languageStore.store.language,
+                locales: tutors._allTitleLocales,
+              })}
             />
             <Grid columns="4">
-              {tutors.tutorList.map(item => {
-                return (
-                  <div className="tutor" key={item.id}>
-                    <img src={item.tutorImage.url} alt="tutor 1" className="tutor__image" />
-                    <ul className="tutor__languages">
-                      {renderLanguages(item)}
-                    </ul>
-                    <span className="tutor__name">
-                  {item.tutorName}
-                </span>
-                    <span className="tutor__description">
-                  {item.tutorDescription}
-                </span>
-                  </div>
-                )
-              })}
+              {getLocaleValue({
+                language: languageStore.store.language,
+                locales: tutors._allTutorListLocales,
+              }).map(item => (
+                <div className="tutor" key={item.id}>
+                  <img src={item.tutorImage.url} alt="tutor 1" className="tutor__image" />
+                  <ul className="tutor__languages">
+                    {renderLanguages(item)}
+                  </ul>
+                  <span className="tutor__name">
+                    {item.tutorName}
+                  </span>
+                  <span className="tutor__description">
+                    {item.tutorDescription}
+                  </span>
+                </div>
+              ))}
             </Grid>
             <p
               className="tutors__description"
               dangerouslySetInnerHTML={{
-                __html: tutors.description,
+                __html: getLocaleValue({
+                  language: languageStore.store.language,
+                  locales: tutors._allDescriptionLocales,
+                }),
               }}
             />
           </Wrapper>
@@ -78,22 +92,34 @@ const query =
   graphql`
     query TutorsQuery {
       datoCmsCarPark(locale: {eq: "en"}) {
-        galleryDescription
+        _allGalleryDescriptionLocales {
+          locale
+          value
+        }
       }
       datoCmsTutor(locale: {eq: "en"}) {
-        description
-        title
+        _allDescriptionLocales {
+          locale
+          value
+        }
+        _allTitleLocales {
+          locale
+          value
+        }
         titleIcon {
           url
         }
-        tutorList {
-          id
-          tutorImage {
-            url
+        _allTutorListLocales {
+          locale
+          value {
+            id
+            tutorImage {
+              url
+            }
+            tutorLanguages
+            tutorName
+            tutorDescription
           }
-          tutorLanguages
-          tutorName
-          tutorDescription
         }
       }
     }

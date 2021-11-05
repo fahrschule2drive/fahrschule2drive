@@ -1,7 +1,9 @@
 import Carousel from 'react-elastic-carousel';
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
+import { LanguageContext } from '../store/context/LanguageContext';
+import { getLocaleValue } from '../utils';
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -55,6 +57,8 @@ const carouselBreakPoints = [
 ];
 
 const OurCars = () => {
+  const languageStore = useContext(LanguageContext);
+
   const styles = useStyles();
 
   return (
@@ -69,7 +73,10 @@ const OurCars = () => {
             isRTL={false}
             pagination={false}
           >
-            {carPark.carParkItem.map(item => (
+            {getLocaleValue({
+              language: languageStore.store.language,
+              locales: carPark._allCarParkItemLocales,
+            }).map(item => (
               <div
                 className={styles.imageContainer}
                 key={item.id}
@@ -94,12 +101,15 @@ const query =
   graphql`
     query OurCarsQuery {
       datoCmsCarPark(locale: {eq: "en"}) {
-        carParkItem {
-          carDescription
-          carImage {
-            url
+        _allCarParkItemLocales {
+          locale
+          value {
+            carDescription
+            carImage {
+              url
+            }
+            id
           }
-          id
         }
       }
     }
