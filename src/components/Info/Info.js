@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
 
 import Wrapper from '../Wrapper';
 import InfoItem from './InfoItem';
 import Grid from '../Grid';
+import { LanguageContext } from '../../store/context/LanguageContext';
+import { getLocaleValue } from '../../utils';
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -18,6 +20,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Info = () => {
+  const languageStore = useContext(LanguageContext);
   const styles = useStyles();
 
   return (
@@ -28,7 +31,10 @@ const Info = () => {
       }) => (
         <Wrapper className={styles.wrapper}>
           <Grid columns={3}>
-            {info.infoList.map((item, index) => (
+            {getLocaleValue({
+              language: languageStore.store.language,
+              locales: info._allInfoListLocales,
+            }).map((item, index) => (
               <InfoItem
                 data={item}
                 index={index}
@@ -54,10 +60,13 @@ const query =
         }
       }
       datoCmsInfo(locale: {eq: "en"}) {
-        infoList {
-          description
-          id
-          title
+        _allInfoListLocales {
+          locale
+          value {
+            description
+            id
+            title
+          }
         }
       }
       allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
