@@ -31,10 +31,6 @@ const Header = () => {
   const [isActive, setActivity] = useState(false);
   const [languages, setLanguages] = useState(languagesData);
 
-  // context
-  // const globalState = useContext(store);
-  // const { dispatch } = globalState;
-
   const searchLanguage = (language, arrayItem) => arrayItem.abbr === language;
 
   const moveArrayItem = (from, to) => {

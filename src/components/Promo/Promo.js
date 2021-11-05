@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
 import Benefit from './Benefit';
-import Wrapper from '../Wrapper';
 import Grid from '../Grid';
+import Wrapper from '../Wrapper';
+import { getLocaleValue } from '../../utils';
+import { LanguageContext } from '../../store/context/LanguageContext';
 
 import './Promo.scss';
 
@@ -12,63 +14,78 @@ import IconEN from '../../images/icons/flag-united-kingdom.svg';
 import IconRU from '../../images/icons/flag-russia.svg';
 import IconTU from '../../images/icons/flag-turkey.svg';
 
-const Promo = () => (
-  <StaticQuery
-    query={query}
-    render={({
-      datoCmsPromo: promo,
-    }) => (
-      <section
-        className="promo"
-        style={{ backgroundImage: `url(${promo.background.url})` }}
-      >
-        <Wrapper>
-          <h1
-            className="promo__title"
-            dangerouslySetInnerHTML={{
-              __html: promo.title
-            }}
-          />
-          <p
-            className="promo__subtitle"
-            dangerouslySetInnerHTML={{
-              __html: promo.subtitle
-            }}
-          />
-          <div className="promo__description">
-            <button className="cta">
-              Начать сейчас
-            </button>
-            <div className="promo__price">
-              {promo.price} €
-            </div>
-            <p
-              className="promo__price-details"
+const Promo = () => {
+  const languageStore = useContext(LanguageContext);
+
+  return (
+    <StaticQuery
+      query={query}
+      render={({
+        datoCmsPromo: promo,
+      }) => (
+        <section
+          className="promo"
+          style={{ backgroundImage: `url(${promo.background.url})` }}
+        >
+          <Wrapper>
+            <h1
+              className="promo__title"
               dangerouslySetInnerHTML={{
-                __html: promo.priceDescription
+                __html: getLocaleValue({
+                  language: languageStore.store.language,
+                  locales: promo._allTitleLocales,
+                })
               }}
             />
-          </div>
-          {promo.benefits.length}
-          <Grid columns={4}>
-            {promo.benefits.map((benefit, index) => (
-              <Benefit key={benefit.id} benefit={benefit}>
-                {!index && (
-                  <div className="promo__languages">
-                    <img src={IconDE} alt="german"/>
-                    <img src={IconEN} alt="english"/>
-                    <img src={IconTU} alt="turkish"/>
-                    <img src={IconRU} alt="russian"/>
-                  </div>
-                )}
-              </Benefit>
-            ))}
-          </Grid>
-        </Wrapper>
-      </section>
-    )}
-  />
-);
+            <p
+              className="promo__subtitle"
+              dangerouslySetInnerHTML={{
+                __html: getLocaleValue({
+                  language: languageStore.store.language,
+                  locales: promo._allSubtitleLocales,
+                })
+              }}
+            />
+            <div className="promo__description">
+              <button className="cta">
+                Начать сейчас
+              </button>
+              <div className="promo__price">
+                {promo.price} €
+              </div>
+              <p
+                className="promo__price-details"
+                dangerouslySetInnerHTML={{
+                  __html: getLocaleValue({
+                    language: languageStore.store.language,
+                    locales: promo._allPriceDescriptionLocales,
+                  })
+                }}
+              />
+            </div>
+            <Grid columns={4}>
+              {getLocaleValue({
+                language: languageStore.store.language,
+                locales: promo._allBenefitsLocales,
+              }).map((benefit, index) => (
+                <Benefit key={benefit.id} benefit={benefit} locales={promo._allBenefitsLocales}>
+                  {!index && (
+                    <div className="promo__languages">
+                      <img src={IconDE} alt="german"/>
+                      <img src={IconEN} alt="english"/>
+                      <img src={IconTU} alt="turkish"/>
+                      <img src={IconRU} alt="russian"/>
+                    </div>
+                  )}
+                </Benefit>
+              ))}
+            </Grid>
+          </Wrapper>
+        </section>
+      )}
+    />
+  );
+}
 
 const query =
   graphql`
@@ -82,20 +99,32 @@ const query =
         }
       }
       datoCmsPromo(locale: {eq: "en"}) {
+        _allTitleLocales {
+          locale
+          value
+        }
+        _allSubtitleLocales {
+          locale
+          value
+        }
+        _allPriceDescriptionLocales {
+          locale
+          value
+        }
+        _allBenefitsLocales {
+          locale
+          value {
+            icon {
+              url
+            }
+            id
+            title
+          }
+        }
         background {
           url
         }
-        benefits {
-          icon {
-            url
-          }
-          id
-          title
-        }
         price
-        priceDescription
-        subtitle
-        title
       }
       allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
         edges {
