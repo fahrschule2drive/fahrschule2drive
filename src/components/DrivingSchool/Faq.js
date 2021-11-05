@@ -1,10 +1,12 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
 
 import IconMinus from '../../images/icons/minus.svg';
 import IconPlus from '../../images/icons/plus.svg';
+import { LanguageContext } from '../../store/context/LanguageContext';
+import { getLocaleValue } from '../../utils';
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -46,6 +48,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Faq = () => {
+  const languageStore = useContext(LanguageContext);
+
   const [activeFaqPoint, setActiveFaqPoint] = useState(null);
 
   const styles = useStyles();
@@ -65,7 +69,10 @@ const Faq = () => {
         datoCmsDrivingSchool: drivingSchool,
       }) => (
         <div className={styles.wrapper}>
-          {drivingSchool.faqItems.map((item, index) => (
+          {getLocaleValue({
+            language: languageStore.store.language,
+            locales: drivingSchool._allFaqItemsLocales,
+          }).map((item, index) => (
             <div
               className={classnames(styles.item, {
                 [styles.itemActive]: activeFaqPoint === index,
@@ -100,13 +107,16 @@ const query =
   graphql`
     query FaqQuery {
       datoCmsDrivingSchool(locale: {eq: "en"}) {
-        faqItems {
-          answerNode {
-            childMarkdownRemark {
-              html
+        _allFaqItemsLocales {
+          locale
+          value {
+            answerNode {
+              childMarkdownRemark {
+                html
+              }
             }
+            question
           }
-          question
         }
       }
     }

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
+import { LanguageContext } from '../../store/context/LanguageContext';
+import { getLocaleValue } from '../../utils';
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -34,6 +36,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const About = () => {
+  const languageStore = useContext(LanguageContext);
+
   const styles = useStyles();
 
   return (
@@ -47,7 +51,10 @@ const About = () => {
           <article
             className={styles.article}
             dangerouslySetInnerHTML={{
-              __html: drivingSchool.descriptionNode.childMarkdownRemark.html,
+              __html: getLocaleValue({
+                language: languageStore.store.language,
+                locales: drivingSchool._allDescriptionLocales,
+              }),
             }}
           />
         </div>
@@ -63,10 +70,9 @@ const query =
         office {
           url
         }
-        descriptionNode {
-          childMarkdownRemark {
-            html
-          }
+        _allDescriptionLocales {
+          locale
+          value
         }
       }
     }

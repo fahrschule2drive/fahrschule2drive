@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { makeStyles } from '@material-ui/core';
 
@@ -6,6 +6,8 @@ import Wrapper from '../Wrapper';
 import About from './About';
 import SectionHeader from '../SectionHeader';
 import Faq from './Faq';
+import { LanguageContext } from '../../store/context/LanguageContext';
+import { getLocaleValue } from '../../utils';
 
 const useStyles = makeStyles(() => ({
   section: {
@@ -40,6 +42,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const DrivingSchool = () => {
+  const languageStore = useContext(LanguageContext);
+
   const styles = useStyles();
 
   return (
@@ -53,7 +57,10 @@ const DrivingSchool = () => {
             <SectionHeader
               className={styles.titleDrivingSchool}
               iconUrl={drivingSchool.titleIcon.url}
-              title={drivingSchool.title}
+              title={getLocaleValue({
+                language: languageStore.store.language,
+                locales: drivingSchool._allTitleLocales,
+              })}
             />
             <div className={styles.content}>
               <About />
@@ -62,7 +69,10 @@ const DrivingSchool = () => {
             <SectionHeader
               className={styles.titleOurCars}
               iconUrl={drivingSchool.subtitleIcon.url}
-              title={drivingSchool.subtitle}
+              title={getLocaleValue({
+                language: languageStore.store.language,
+                locales: drivingSchool._allSubtitleLocales,
+              })}
             />
           </Wrapper>
         </section>
@@ -75,14 +85,20 @@ const query =
   graphql`
     query DrivingSchoolQuery {
       datoCmsDrivingSchool(locale: {eq: "en"}) {
+        _allTitleLocales {
+          locale
+          value
+        }
+        _allSubtitleLocales {
+          locale
+          value
+        }
         background {
           url
         }
-        subtitle
         subtitleIcon {
           url
         }
-        title
         titleIcon {
           url
         }
