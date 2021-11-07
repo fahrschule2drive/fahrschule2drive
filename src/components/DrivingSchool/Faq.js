@@ -1,58 +1,17 @@
-import classnames from 'classnames';
 import React, { useContext, useState } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import { makeStyles } from '@material-ui/core';
 
 import IconMinus from '../../images/icons/minus.svg';
 import IconPlus from '../../images/icons/plus.svg';
 import { LanguageContext } from '../../store/context/LanguageContext';
 import { getLocaleValue } from '../../utils';
 
-const useStyles = makeStyles(() => ({
-  wrapper: {
-    '@media screen and (min-width: 768px)': {
-      flex: '1 1 50%',
-    },
-  },
-  item: {
-    background: `url(${IconPlus}) calc(100% - 4px) 20px no-repeat`,
-    backgroundSize: '20px 20px',
-    borderTop: '1px solid var(--color-separator)',
-
-    '&:last-child': {
-      borderBottom: '1px solid var(--color-separator)',
-    },
-  },
-  itemActive: {
-    background: `url(${IconMinus}) calc(100% - 4px) 20px no-repeat`,
-    backgroundSize: '20px 20px',
-  },
-  question: {
-    cursor: 'pointer',
-    fontWeight: '600',
-    padding: '20px 40px 20px 0',
-  },
-  answer: {
-    paddingBottom: '20px',
-
-    '& > ul > li:before': {
-      content: '"—"',
-      color: 'var(--color-primary)',
-      paddingRight: '12px',
-    },
-
-    '& > *:not(:first-child)': {
-      marginTop: '20px',
-    },
-  },
-}));
+import './Faq.scss';
 
 const Faq = () => {
   const languageStore = useContext(LanguageContext);
 
   const [activeFaqPoint, setActiveFaqPoint] = useState(null);
-
-  const styles = useStyles();
 
   const handleClick = index => {
     if (activeFaqPoint === index) {
@@ -68,19 +27,18 @@ const Faq = () => {
       render={({
         datoCmsDrivingSchool: drivingSchool,
       }) => (
-        <div className={styles.wrapper}>
+        <div className="faq">
           {getLocaleValue({
             language: languageStore.store.language,
             locales: drivingSchool._allFaqItemsLocales,
           }).map((item, index) => (
             <div
-              className={classnames(styles.item, {
-                [styles.itemActive]: activeFaqPoint === index,
-              })}
+              className="faq__item"
               key={index}
+              style={{ backgroundImage: `url(${activeFaqPoint === index ? IconMinus : IconPlus})` }}
             >
               <div
-                className={styles.question}
+                className="faq__question"
                 onClick={() => handleClick(index)}
                 role="button"
                 tabIndex="-1"
@@ -89,7 +47,7 @@ const Faq = () => {
               </div>
               {activeFaqPoint === index && (
                 <div
-                  className={styles.answer}
+                  className="faq__answer"
                   dangerouslySetInnerHTML={{
                     __html: item.answerNode.childMarkdownRemark.html,
                   }}

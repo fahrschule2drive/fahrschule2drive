@@ -5,11 +5,11 @@ import { graphql, StaticQuery } from 'gatsby';
 import Grid from '../Grid';
 import SectionHeader from '../SectionHeader';
 import Wrapper from '../Wrapper';
+import { getLocaleValue } from '../../utils';
+import { LanguageContext } from '../../store/context/LanguageContext';
 
 // Styles
 import './Tutors.scss';
-import { LanguageContext } from '../../store/context/LanguageContext';
-import { getLocaleValue } from '../../utils';
 
 const Tutors = () => {
   const languageStore = useContext(LanguageContext);
@@ -34,7 +34,10 @@ const Tutors = () => {
         datoCmsCarPark: carPark,
         datoCmsTutor: tutors,
       }) => (
-        <section className="tutors">
+        <section
+          className="tutors"
+          style={{ backgroundImage: `url(${tutors.background.url})` }}
+        >
           <Wrapper>
             <p
               className="tutors__cars-description"
@@ -105,6 +108,9 @@ const query =
         _allTitleLocales {
           locale
           value
+        }
+        background {
+          url
         }
         titleIcon {
           url
