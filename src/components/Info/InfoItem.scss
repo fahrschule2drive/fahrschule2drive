@@ -1,0 +1,15 @@
+.info-item {
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+
+    &--warning {
+      color: var(--color-primary);
+    }
+  }
+
+  &__description {
+    color: var(--color-secondary-text);
+  }
+}

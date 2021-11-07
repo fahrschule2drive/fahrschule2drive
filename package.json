@@ -4,12 +4,10 @@
   "version": "1.0.0",
   "author": "Siarhei Zdabnou",
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
     "classnames": "^2.3.1",
     "dotenv": "^8.1.0",
     "gatsby": "^4.1.0",
     "gatsby-image": "^3.11.0",
-    "gatsby-plugin-material-ui": "^3.0.1",
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-sass": "^5.1.0",
     "gatsby-source-datocms": "^3.0.6",
@@ -23,7 +21,7 @@
     "request": "^2.88.2",
     "sass": "^1.43.4",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.3"
   },
   "keywords": [
     "gatsby"

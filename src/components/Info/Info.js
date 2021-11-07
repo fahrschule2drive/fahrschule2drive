@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import { makeStyles } from '@material-ui/core';
 
 import Wrapper from '../Wrapper';
 import InfoItem from './InfoItem';
@@ -8,20 +7,10 @@ import Grid from '../Grid';
 import { LanguageContext } from '../../store/context/LanguageContext';
 import { getLocaleValue } from '../../utils';
 
-const useStyles = makeStyles(() => ({
-  wrapper: {
-    padding: '60px 30px 50px',
-
-    '@media screen and (min-width: 992px)': {
-      paddingBottom: '50px',
-      paddingTop: '60px',
-    },
-  },
-}));
+import './Info.scss';
 
 const Info = () => {
   const languageStore = useContext(LanguageContext);
-  const styles = useStyles();
 
   return (
     <StaticQuery
@@ -29,7 +18,7 @@ const Info = () => {
       render={({
         datoCmsInfo: info,
       }) => (
-        <Wrapper className={styles.wrapper}>
+        <Wrapper className="info">
           <Grid columns={3}>
             {getLocaleValue({
               language: languageStore.store.language,

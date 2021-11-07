@@ -1,0 +1,32 @@
+.cars {
+  margin: 0 auto;
+  max-width: 1920px;
+  padding: 0;
+  position: relative;
+
+  &__image-container {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    outline: none;
+    width: 100%;
+
+    &:hover > p {
+      opacity: 1;
+    }
+  }
+
+  &__description {
+    align-items: flex-end;
+    background: linear-gradient(90deg, rgba(0, 0, 0, .8) 0%, rgba(255, 255, 255,0) 100%);
+    color: var(--color-white);
+    display: flex;
+    font-size: 18px;
+    height: 100%;
+    opacity: 0;
+    padding: 30px;
+    transition: opacity .4s ease;
+    width: 100%;
+  }
+}
