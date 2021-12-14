@@ -2,8 +2,16 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 256px 0 60px;
+  padding: 200px 0 40px;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    padding: 230px 0 50px;
+  }
+
+  @media screen and (min-width: 992px) {
+    padding: 256px 0 60px;
+  }
 
   &:before {
     background: var(--color-overlay);
@@ -17,9 +25,17 @@
 
   &__title {
     color: var(--color-white);
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 600;
     margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 52px;
+    }
+
+    @media screen and (min-width: 992px) {
+      font-size: 64px;
+    }
   }
 
   &__subtitle {
@@ -63,5 +79,11 @@
   .wrapper {
     position: relative;
     z-index: 1;
+  }
+
+  .grid {
+    @media screen and (max-width: 991px) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
