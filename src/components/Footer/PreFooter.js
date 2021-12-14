@@ -15,31 +15,34 @@ const PreFooter = () => {
     <StaticQuery
       query={query}
       render={({
-        datoCmsFooter: footer,
+        datoCmsPreFooter: preFooter,
       }) => (
         <section className="pre-footer">
           <Wrapper>
           <span
             className="pre-footer__logo"
-            style={{ backgroundImage: `url(${footer.logo.url})` }}
+            style={{ backgroundImage: `url(${preFooter.logo.url})` }}
           />
             <div className="pre-footer__content">
               <address className="pre-footer__item pre-footer__item--address">
                 <span className="pre-footer__title">
                   {getLocaleValue({
                     language: languageStore.store.language,
-                    locales: footer._allAddressLocales,
+                    locales: preFooter._allAddressLocales,
                   })}
                 </span>
                 <a href="https://www.google.com/maps/place/Neue+Bahnhofstra%C3%9Fe+5,+10245+Berlin/@52.505331,13.4689149,17.5z/data=!4m5!3m4!1s0x47a84ef0dbcfa363:0x7714e55b01314e2c!8m2!3d52.505326!4d13.4697742" target="_blank" rel="noreferrer">
                   Neue Bahnhofstrasse 5, 10245 Berlin
+                </a>
+                <a href="https://www.google.com/maps/place/Irenenstra%C3%9Fe+21A,+10317+Berlin/@52.5095265,13.4980346,17z/data=!3m1!4b1!4m5!3m4!1s0x47a84ec0bcf21a59:0x2bba97672e59bbd!8m2!3d52.5095233!4d13.5002232" target="_blank" rel="noreferrer">
+                  Irenenstraße 21A, 10317 Berlin
                 </a>
               </address>
               <div className="pre-footer__item pre-footer__item--phone">
                 <span className="pre-footer__title">
                   {getLocaleValue({
                     language: languageStore.store.language,
-                    locales: footer._allPhoneLocales,
+                    locales: preFooter._allPhoneLocales,
                   })}
                 </span>
                 <a href="tel:+49302942923">+49 30 2942923</a>
@@ -58,8 +61,8 @@ const PreFooter = () => {
 
 const query =
   graphql`
-    query FooterQuery {
-      datoCmsFooter {
+    query PreFooterQuery {
+      datoCmsPreFooter {
         logo {
           url
         }

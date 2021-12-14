@@ -58,6 +58,9 @@
     }
 
     &--address {
+      display: flex;
+      flex-direction: column;
+
       &:before {
         background: url("../../images/icons/location-point.svg") 0 0 no-repeat;
       }
