@@ -47,9 +47,12 @@ const Promo = () => {
               }}
             />
             <div className="promo__description">
-              <button className="cta">
-                Начать сейчас
-              </button>
+              <a href="#driving-school" className="cta">
+                {getLocaleValue({
+                  language: languageStore.store.language,
+                  locales: promo._allAnchorTitleLocales,
+                })}
+              </a>
               <div className="promo__price">
                 {promo.price} €
               </div>
@@ -104,6 +107,10 @@ const query =
           value
         }
         _allSubtitleLocales {
+          locale
+          value
+        }
+        _allAnchorTitleLocales {
           locale
           value
         }

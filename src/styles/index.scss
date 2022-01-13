@@ -75,16 +75,18 @@ html {
 }
 
 .cta {
+  align-items: center;
   background: none;
   border-radius: 25px;
   border: 2px solid var(--color-primary);
   color: var(--color-white);
   cursor: pointer;
+  display: flex;
   font-size: 15px;
   font-weight: 600;
   height: 50px;
   outline: none;
-  padding: 0 48px;;
+  padding: 0 48px;
   position: relative;
   transition: all .4s ease;
 

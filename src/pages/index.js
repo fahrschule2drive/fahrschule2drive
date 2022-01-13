@@ -7,7 +7,7 @@ import Feedbacks from '../components/Feedbacks';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Info from '../components/Info/Info';
-import Map from '../components/Map';
+import ContactForm from '../components/ContactForm';
 import OurCars from '../components/OurCars';
 import PostFooter from '../components/Footer/PostFooter';
 import PreFooter from '../components/Footer/PreFooter';
@@ -29,7 +29,7 @@ const IndexPage = ({ data: { home } }) => (
     <Feedbacks/>
     <Exam/>
     <Prices/>
-    <Map/>
+    <ContactForm/>
     <footer>
       <PreFooter/>
       <Footer/>

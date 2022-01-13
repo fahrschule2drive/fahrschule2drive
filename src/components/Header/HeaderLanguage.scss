@@ -4,9 +4,9 @@
     border: 2px solid var(--color-primary);
     height: 50px;
     width: 50px;
-    margin-right: 20px;
     transition: height .4s ease;
     overflow: hidden;
+    margin-left: auto;
 
     &--active {
       height: 142px;

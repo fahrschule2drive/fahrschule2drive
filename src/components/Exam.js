@@ -15,7 +15,7 @@ const Exam = () => {
     <StaticQuery
       query={query}
       render={({
-        datoCmsExam: exam,
+        datoCmsExam: exam
       }) => (
         <section className="exam overlay" style={{ backgroundImage: `url(${exam.background.url})` }}>
           <Wrapper>
@@ -39,7 +39,12 @@ const Exam = () => {
               }}
             />
             <div className="center">
-              <button className="cta">Начать сейчас</button>
+              <a href="#contact-form" className="cta">
+                {getLocaleValue({
+                  language: languageStore.store.language,
+                  locales: exam._allAnchorTitleLocales,
+                })}
+              </a>
             </div>
           </Wrapper>
         </section>
@@ -65,6 +70,10 @@ const query =
         }
         icon {
           url
+        }
+        _allAnchorTitleLocales {
+          locale
+          value
         }
       }
     }
