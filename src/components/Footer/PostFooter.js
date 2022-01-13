@@ -17,7 +17,7 @@ const PostFooter = () => (
           <a href="#" />
         </li>
         <li className="social__item social__item--whatsapp">
-          <a href="#" />
+          <a href="https://api.whatsapp.com/send?phone=+4916091755054"/>
         </li>
       </ul>
     </Wrapper>
