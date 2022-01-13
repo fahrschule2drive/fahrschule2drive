@@ -55,6 +55,7 @@ const Tutors = () => {
                 language: languageStore.store.language,
                 locales: tutors._allTitleLocales,
               })}
+              id="tutors"
             />
             <Grid columns="4">
               {getLocaleValue({

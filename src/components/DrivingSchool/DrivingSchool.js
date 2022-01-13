@@ -41,6 +41,7 @@ const DrivingSchool = () => {
                 language: languageStore.store.language,
                 locales: drivingSchool._allSubtitleLocales,
               })}
+              id="cars"
             />
           </Wrapper>
         </section>

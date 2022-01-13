@@ -18,7 +18,7 @@ const Info = () => {
       render={({
         datoCmsInfo: info,
       }) => (
-        <Wrapper className="info">
+        <Wrapper className="info" id="info">
           <Grid columns={3}>
             {getLocaleValue({
               language: languageStore.store.language,
