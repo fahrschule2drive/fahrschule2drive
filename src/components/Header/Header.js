@@ -11,13 +11,17 @@ const Header = () => (
   <header className="header">
     <Wrapper>
       <div className="header__logo" />
-      {/*<nav className="nav">*/}
-      {/*  <span className="nav__item">Home</span>*/}
-      {/*  <span className="nav__item">Führerschein</span>*/}
-      {/*  <span className="nav__item">Preise & Infos</span>*/}
-      {/*  <span className="nav__item">Über uns</span>*/}
-      {/*  <span className="nav__item">Kontakt</span>*/}
-      {/*</nav>*/}
+      <nav className="nav">
+        <a href="#driving-school" className="nav__item">
+          Führerschein
+        </a>
+        <a href="#prices" className="nav__item">
+          Preise & Infos
+        </a>
+        <a href="#contact-form" className="nav__item">
+          Kontakt
+        </a>
+      </nav>
       <HeaderLanguage />
     </Wrapper>
   </header>

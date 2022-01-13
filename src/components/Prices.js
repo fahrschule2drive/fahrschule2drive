@@ -21,6 +21,7 @@ const Prices = () => {
       }) => (
         <section
           className="prices"
+          id="prices"
           style={{ backgroundImage: `url(${price.background.url})` }}
         >
           <Wrapper>

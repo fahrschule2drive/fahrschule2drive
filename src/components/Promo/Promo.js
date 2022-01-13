@@ -53,18 +53,6 @@ const Promo = () => {
                   locales: promo._allAnchorTitleLocales,
                 })}
               </a>
-              <div className="promo__price">
-                {promo.price} €
-              </div>
-              <p
-                className="promo__price-details"
-                dangerouslySetInnerHTML={{
-                  __html: getLocaleValue({
-                    language: languageStore.store.language,
-                    locales: promo._allPriceDescriptionLocales,
-                  })
-                }}
-              />
             </div>
             <Grid columns={4}>
               {getLocaleValue({
@@ -114,10 +102,6 @@ const query =
           locale
           value
         }
-        _allPriceDescriptionLocales {
-          locale
-          value
-        }
         _allBenefitsLocales {
           locale
           value {
@@ -131,7 +115,6 @@ const query =
         background {
           url
         }
-        price
       }
       allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
         edges {
