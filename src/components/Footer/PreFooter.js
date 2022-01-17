@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { Link, graphql, StaticQuery } from 'gatsby';
 
 import Wrapper from '../Wrapper';
 import { getLocaleValue } from '../../utils';
@@ -19,10 +19,11 @@ const PreFooter = () => {
       }) => (
         <section className="pre-footer">
           <Wrapper>
-          <span
-            className="pre-footer__logo"
-            style={{ backgroundImage: `url(${preFooter.logo.url})` }}
-          />
+            <Link
+              to='/'
+              className="pre-footer__logo"
+              style={{ backgroundImage: `url(${preFooter.logo.url})` }}
+            />
             <div className="pre-footer__content">
               <address className="pre-footer__item pre-footer__item--address">
                 <span className="pre-footer__title">

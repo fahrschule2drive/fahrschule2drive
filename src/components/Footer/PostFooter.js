@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import Wrapper from '../Wrapper';
 
@@ -8,7 +9,11 @@ import './PostFooter.scss';
 const PostFooter = () => (
   <section className="post-footer">
     <Wrapper>
-      <p className="post-footer__copyright">Copyright © 2020 Alle Rechte vorbehalten 2Drive fahrschule. Datenschutz</p>
+      <p className="post-footer__copyright">
+        Copyright © 2020 Alle Rechte vorbehalten 2Drive fahrschule.{' '}
+        <Link to={`/policy`}>Datenschutz</Link>.{' '}
+        <Link to={`/imprint`}>Impressum</Link>.
+      </p>
       <ul className="social">
         <li className="social__item social__item--facebook">
           <a href="#" />

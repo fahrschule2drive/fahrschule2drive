@@ -16,6 +16,12 @@
     height: 67px;
     background: url("../../images/logo-white.svg") 0 0 no-repeat;
   }
+
+  &--dark {
+    .header__logo {
+      background: url("../../images/logo.svg") 0 0 no-repeat;
+    }
+  }
 }
 
 .nav {
