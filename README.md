@@ -1,6 +1,8 @@
 # Details
 Engine - Gatsby
+
 CMS - DatoCMS (https://www.datocms.com/)
+
 Form handler - GetForm (https://app.getform.io/)
 
 ## Repo usage
