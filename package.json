@@ -8,7 +8,6 @@
     "dotenv": "^8.1.0",
     "gatsby": "^4.1.0",
     "gatsby-image": "^3.11.0",
-    "gatsby-plugin-favicons": "^2.0.0",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sass": "^5.1.0",
     "gatsby-source-datocms": "^3.0.6",
