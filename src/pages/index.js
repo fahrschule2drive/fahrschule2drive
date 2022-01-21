@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
 import DrivingSchool from '../components/DrivingSchool/DrivingSchool';
 import Exam from '../components/Exam';
@@ -20,6 +21,10 @@ import '../styles/index.scss';
 
 const IndexPage = ({ data: { home } }) => (
   <Fragment>
+    <Helmet>
+      <meta name="theme-color" content="#e02b20"/>
+    </Helmet>
+
     <LanguageContextProvider>
       <Header/>
       <Promo/>

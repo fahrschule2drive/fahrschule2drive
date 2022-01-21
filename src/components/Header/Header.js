@@ -12,7 +12,6 @@ import { LanguageContext } from '../../store/context/LanguageContext';
 
 const navLinks = [
   'info',
-  'driving-school',
   'cars',
   'tutors',
   'prices',
@@ -32,7 +31,12 @@ const Header = ({ type }) => {
       language: languageStore.store.language,
       locales: header._allHeaderNavLocales,
     }).map((item, index) => (
-      <a href={`#${navLinks[index]}`} className="nav__item" key={index}>
+      <a
+        href={`#${navLinks[index]}`}
+        className="nav__item"
+        key={index}
+        onClick={handleMenuClick}
+      >
         {item.headerItem}
       </a>
     ));
