@@ -57,15 +57,3 @@ export const query = graphql`
     }
   }
 `;
-
-//   <Link to={`/works/${work.slug}`} className="card__image">
-//   <Img fluid={work.coverImage.fluid} />
-// </Link>
-// <figcaption className="card__caption">
-//   <h6 className="card__title">
-//     <Link to={`/works/${work.slug}`}>{work.title}</Link>
-//   </h6>
-//   <div className="card__description">
-//     <p>{work.excerpt}</p>
-//   </div>
-// </figcaption>

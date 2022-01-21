@@ -1,5 +1,9 @@
 .article {
-  padding: 256px 0 60px;
+  padding: 120px 0 60px;
+
+  @media screen and (min-width: 992px) {
+    padding-top: 256px;
+  }
 
   * {
     color: var(--color-secondary-text);
