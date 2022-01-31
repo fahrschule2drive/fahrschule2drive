@@ -39,15 +39,6 @@ const Tutors = () => {
           style={{ backgroundImage: `url(${tutors.background.url})` }}
         >
           <Wrapper>
-            <p
-              className="tutors__cars-description"
-              dangerouslySetInnerHTML={{
-                __html: getLocaleValue({
-                  language: languageStore.store.language,
-                  locales: carPark._allGalleryDescriptionLocales,
-                }),
-              }}
-            />
             <SectionHeader
               className="section-header__icon--tutors"
               iconUrl={tutors.titleIcon.url}
@@ -95,12 +86,6 @@ const Tutors = () => {
 const query =
   graphql`
     query TutorsQuery {
-      datoCmsCarPark(locale: {eq: "en"}) {
-        _allGalleryDescriptionLocales {
-          locale
-          value
-        }
-      }
       datoCmsTutor(locale: {eq: "en"}) {
         _allDescriptionLocales {
           locale

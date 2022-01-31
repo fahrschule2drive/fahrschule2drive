@@ -35,6 +35,12 @@ const PreFooter = () => {
                 <a href="https://www.google.com/maps/place/Neue+Bahnhofstra%C3%9Fe+5,+10245+Berlin/@52.505331,13.4689149,17.5z/data=!4m5!3m4!1s0x47a84ef0dbcfa363:0x7714e55b01314e2c!8m2!3d52.505326!4d13.4697742" target="_blank" rel="noreferrer">
                   Neue Bahnhofstrasse 5, 10245 Berlin
                 </a>
+                <span className="pre-footer__title">
+                  {getLocaleValue({
+                    language: languageStore.store.language,
+                    locales: preFooter._allAddressLocales,
+                  })} 2
+                </span>
                 <a href="https://www.google.com/maps/place/Irenenstra%C3%9Fe+21A,+10317+Berlin/@52.5095265,13.4980346,17z/data=!3m1!4b1!4m5!3m4!1s0x47a84ec0bcf21a59:0x2bba97672e59bbd!8m2!3d52.5095233!4d13.5002232" target="_blank" rel="noreferrer">
                   Irenenstraße 21A, 10317 Berlin
                 </a>

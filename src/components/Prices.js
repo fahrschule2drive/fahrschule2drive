@@ -27,12 +27,6 @@ const Prices = () => {
           <Wrapper>
             <div className="section-header">
               <div className="section-header__icon section-header__icon--tutors" style={{ backgroundImage: `url(${price.icon.url})` }}/>
-              <div className="section-header__subtitle">
-                {getLocaleValue({
-                  language: languageStore.store.language,
-                  locales: price._allSubtitleLocales,
-                })}
-              </div>
               <h2 className="section-header__title">
                 {getLocaleValue({
                   language: languageStore.store.language,
@@ -85,10 +79,6 @@ const query =
         }
         icon {
           url
-        }
-        _allSubtitleLocales {
-          locale
-          value
         }
         _allTitleLocales {
           value

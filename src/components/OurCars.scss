@@ -1,8 +1,12 @@
 .cars {
-  margin: 0 auto;
+  margin: 0 auto 60px;
   max-width: 1920px;
   padding: 0;
   position: relative;
+
+  @media screen and (min-width: 992px) {
+    margin-bottom: 160px;
+  }
 
   &__image-container {
     background-position: center center;
