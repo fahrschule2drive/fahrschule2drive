@@ -22,7 +22,7 @@ import '../styles/index.scss';
 const IndexPage = ({ data: { home } }) => (
   <Fragment>
     <Helmet>
-      <meta name="theme-color" content="#e02b20"/>
+      <meta name="theme-color" content="#ffffff"/>
     </Helmet>
 
     <LanguageContextProvider>
