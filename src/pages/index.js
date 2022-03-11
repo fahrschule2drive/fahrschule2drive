@@ -32,7 +32,7 @@ const IndexPage = ({ data: { home } }) => (
       <DrivingSchool/>
       <OurCars/>
       <Tutors/>
-      <Feedbacks/>
+      {/*<Feedbacks/>*/}
       <Exam/>
       <Prices/>
       <ContactForm/>
