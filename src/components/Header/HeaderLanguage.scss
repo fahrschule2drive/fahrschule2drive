@@ -39,4 +39,10 @@
       background-image: url('../../images/icons/flag-russia.svg');
     }
   }
+
+  &__abbr {
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
 }

@@ -22,7 +22,8 @@ const Tutors = () => {
       Array.isArray(tutorLanguages[0].languages)
     ) {
       return tutorLanguages[0].languages.map((language, index) => (
-        <li className={`tutor__language tutor__language--${language}`} key={index}/>
+        // <li className={`tutor__language tutor__language--${language}`} key={index}/>
+        <span className='tutor__language tutor__language--abbr' key={index}>{language}</span>
       ));
     }
   };

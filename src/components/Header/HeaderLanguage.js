@@ -64,7 +64,10 @@ const Header = () => {
     <div className={`header-language__wrapper ${isActive ? 'header-language__wrapper--active' : ''}`}>
       {languages.map((item, index) => (
         <button className="header-language__item" onClick={handleLanguageClick(item.abbr)} key={index}>
-          <img src={item.icon} alt={item.alt} className={`header-language__icon header-language__icon--${item.abbr}`}/>
+          {/* <img src={item.icon} alt={item.alt} className={`header-language__icon header-language__icon--${item.abbr}`}/> */}
+          <span className='header-language__abbr'>
+            {item.abbr}
+          </span>
         </button>
       ))}
     </div>

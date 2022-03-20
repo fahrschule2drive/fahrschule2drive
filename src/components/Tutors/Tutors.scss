@@ -84,6 +84,11 @@
     &--ru {
       background-image: url('../../images/icons/flag-russia.svg');
     }
+
+    &--abbr {
+      text-transform: uppercase;
+      color: var(--color-secondary-text);
+    }
   }
 
   &__name {

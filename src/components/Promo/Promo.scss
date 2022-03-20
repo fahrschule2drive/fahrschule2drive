@@ -76,6 +76,12 @@
     }
   }
 
+  &__language {
+    color: var(--color-white);
+    text-transform: uppercase;
+    margin: 0 8px;
+  }
+
   .wrapper {
     position: relative;
     z-index: 1;

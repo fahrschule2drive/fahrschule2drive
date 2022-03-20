@@ -9,10 +9,10 @@ import { LanguageContext } from '../../store/context/LanguageContext';
 
 import './Promo.scss';
 
-import IconDE from '../../images/icons/flag-germany.svg';
-import IconEN from '../../images/icons/flag-united-kingdom.svg';
-import IconRU from '../../images/icons/flag-russia.svg';
-import IconTU from '../../images/icons/flag-turkey.svg';
+// import IconDE from '../../images/icons/flag-germany.svg';
+// import IconEN from '../../images/icons/flag-united-kingdom.svg';
+// import IconRU from '../../images/icons/flag-russia.svg';
+// import IconTU from '../../images/icons/flag-turkey.svg';
 
 const Promo = () => {
   const languageStore = useContext(LanguageContext);
@@ -62,10 +62,14 @@ const Promo = () => {
                 <Benefit key={benefit.id} benefit={benefit} locales={promo._allBenefitsLocales}>
                   {!index && (
                     <div className="promo__languages">
-                      <img src={IconDE} alt="german"/>
+                      {/* <img src={IconDE} alt="german"/>
                       <img src={IconEN} alt="english"/>
                       <img src={IconTU} alt="turkish"/>
-                      <img src={IconRU} alt="russian"/>
+                      <img src={IconRU} alt="russian"/> */}
+                      <span className='promo__language'>DE</span>
+                      <span className='promo__language'>EN</span>
+                      <span className='promo__language'>TU</span>
+                      <span className='promo__language'>RU</span>
                     </div>
                   )}
                 </Benefit>
