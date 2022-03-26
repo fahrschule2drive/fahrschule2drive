@@ -15,14 +15,19 @@ const PostFooter = () => (
         <Link to={`/imprint`}>Impressum</Link>.
       </p>
       <ul className="social">
-        <li className="social__item social__item--facebook">
+        {/* <li className="social__item social__item--facebook">
           <a href="#" />
-        </li>
+        </li> */}
         <li className="social__item social__item--instagram">
-          <a href="#" />
+          <a href="https://www.instagram.com/fahrschule_2drive/" target="_blank" />
         </li>
         <li className="social__item social__item--whatsapp">
           <a href="https://api.whatsapp.com/send?phone=+4916091755054"/>
+          <span className='social__subtitle'>Ostkreuz</span>
+        </li>
+        <li className="social__item social__item--whatsapp">
+          <a href="https://api.whatsapp.com/send?phone=+4915753297031"/>
+          <span className='social__subtitle'>Lichtenberg</span>
         </li>
       </ul>
     </Wrapper>
