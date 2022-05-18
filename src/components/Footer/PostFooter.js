@@ -12,7 +12,8 @@ const PostFooter = () => (
       <p className="post-footer__copyright">
         Copyright © 2020 Alle Rechte vorbehalten 2Drive fahrschule.{' '}
         <Link to={`/policy`}>Datenschutz</Link>.{' '}
-        <Link to={`/imprint`}>Impressum</Link>.
+        <Link to={`/imprint`}>Impressum</Link>.{' '}
+        <Link to={`/agb`}>AGB</Link>.
       </p>
       <ul className="social">
         {/* <li className="social__item social__item--facebook">
