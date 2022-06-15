@@ -39,10 +39,12 @@ const PreFooter = () => (
                 Ostkreuz
               </span>
               <a href="tel:+49302942923">030 294 29 23</a>
+              <a href="tel:+4916091755054">0160 91755054</a>
               <span className="pre-footer__title">
                 Lichtenberg
               </span>
               <a href="tel:+493062874188">030 628 741 88</a>
+              <a href="tel:+4916091755054">0157 53297031</a>
             </div>
             <div className="pre-footer__item pre-footer__item--email">
               <span className="pre-footer__title">Email</span>

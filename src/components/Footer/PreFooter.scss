@@ -77,6 +77,10 @@
         background: url("../../images/icons/mail.svg") 0 0 no-repeat;
       }
     }
+
+    & > * {
+      display: block;
+    }
   }
 
   &__title {
