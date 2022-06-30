@@ -16,4 +16,24 @@
   &__description {
     color: var(--color-secondary-text);
   }
+
+  &__description-block {
+    color: var(--color-secondary-text);
+
+    * {
+      color: inherit;
+    }
+
+    & > * {
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+
+    li:before {
+      content: "—";
+      color: var(--color-primary);
+      padding-right: 12px;
+    }
+  }
 }

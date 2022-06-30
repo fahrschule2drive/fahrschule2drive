@@ -80,7 +80,7 @@ const Map = () => {
                     })}
                   />
                 </div>
-                <LoadCanvasTemplate className="anal"/>
+                <LoadCanvasTemplate/>
                 <div className='center'>
                   <input placeholder="Enter Captcha Value" name="user-captcha-input" type="text" className='contact-form__capcha-input' ref={inputEl}/>
                 </div>

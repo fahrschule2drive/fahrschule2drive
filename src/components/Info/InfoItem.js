@@ -9,13 +9,23 @@ const Benefit = ({
 }) => (
   <div className="info-item">
     <h3 className={classnames('info-item__title', {
-      'info-item__title--warning': index === 2,
+      'info-item__title--warning': index === 3,
     })}>
       {data.title}
     </h3>
-    <p className="info-item__description">
-      {data.description}
-    </p>
+    {(() => {console.log(data.descriptionNode?.childMarkdownRemark?.html)})()}
+    {data.descriptionNode.childMarkdownRemark ? (
+      <div
+        className="info-item__description-block"
+        dangerouslySetInnerHTML={{
+          __html: data.descriptionNode?.childMarkdownRemark?.html,
+        }}
+      />
+    ) : (
+      <p className="info-item__description">
+        {data.description}
+      </p>
+    )}
   </div>
 );
 
