@@ -13,7 +13,6 @@ const Benefit = ({
     })}>
       {data.title}
     </h3>
-    {(() => {console.log(data.descriptionNode?.childMarkdownRemark?.html)})()}
     {data.descriptionNode.childMarkdownRemark ? (
       <div
         className="info-item__description-block"

@@ -28,11 +28,21 @@ const Map = () => {
   const handleSubmit = event => {
     let userCaptcha = inputEl.current;
 
+    const data = new FormData(event.target);
+    const message = [...data.entries()][2][1];
+
+    if (/http/gmi.test(message)) {
+      event.target.reset();
+      event.preventDefault();
+
+      return;
+    }
+
     if (validateCaptcha(userCaptcha.value) === true) {
-        loadCaptchaEnginge(6); 
-        userCaptcha.disabled = true;
+      loadCaptchaEnginge(6); 
+      userCaptcha.disabled = true;
     } else {
-        event.preventDefault();
+      event.preventDefault();
     }
 
     userCaptcha.value = '';
