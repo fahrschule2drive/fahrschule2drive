@@ -9,7 +9,7 @@ const Benefit = ({
 }) => (
   <div className="info-item">
     <h3 className={classnames('info-item__title', {
-      'info-item__title--warning': index === 3,
+      'info-item__title--warning': index === 2,
     })}>
       {data.title}
     </h3>
