@@ -1,4 +1,10 @@
 .info-item {
+  &:last-child {
+    .info-item__title {
+      color: var(--color-primary);
+    }
+  }
+
   &__title {
     font-size: 24px;
     font-weight: 600;
@@ -6,10 +12,6 @@
 
     @media screen and (min-width: 992px) {
       margin-bottom: 20px;
-    }
-
-    &--warning {
-      color: var(--color-primary);
     }
   }
 

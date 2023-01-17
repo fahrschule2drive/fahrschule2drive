@@ -12,6 +12,25 @@ import './Info.scss';
 const Info = () => {
   const languageStore = useContext(LanguageContext);
 
+  const renderInfoItems = (info) => {
+    const items = getLocaleValue({
+      language: languageStore.store.language,
+      locales: info._allInfoListLocales,
+    });
+
+    return (
+      <Grid columns={items.length}>
+        {items.map((item, index) => (
+          <InfoItem
+            data={item}
+            index={index}
+            key={item.id}
+          />
+        ))}
+      </Grid>
+    );
+  };
+
   return (
     <StaticQuery
       query={query}
@@ -19,19 +38,7 @@ const Info = () => {
         datoCmsInfo: info,
       }) => (
         <Wrapper className="info" id="info">
-          <Grid columns={3}>
-            {getLocaleValue({
-              language: languageStore.store.language,
-              locales: info._allInfoListLocales,
-            }).map((item, index) => (
-              <InfoItem
-                data={item}
-                index={index}
-                key={item.id}
-              />
-            ))}
-            
-          </Grid>
+          {renderInfoItems(info)}
         </Wrapper>
       )}
     />

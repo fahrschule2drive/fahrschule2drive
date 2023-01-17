@@ -23,8 +23,6 @@ const Map = () => {
     })
   }, []);
 
-  
-
   const handleSubmit = event => {
     let userCaptcha = inputEl.current;
 
@@ -89,10 +87,51 @@ const Map = () => {
                       locales: contactForm._allMessageLocales,
                     })}
                   />
+                  <select name="office-location" defaultValue="">
+                    <option value="" disabled>
+                      {getLocaleValue({
+                        language: languageStore.store.language,
+                        locales: contactForm._allOfficeLocationLocales,
+                      })}
+                    </option>
+                    {getLocaleValue({
+                      language: languageStore.store.language,
+                      locales: contactForm._allOfficeLocationItemsLocales,
+                    }).map((item, index) => (
+                      <option
+                        key={index}
+                        value={item.officeLocationItem}
+                      >
+                        {item.officeLocationItem}
+                      </option>
+                    ))}
+                  </select>
+                  <select name="examination" defaultValue="">
+                    <option value="" disabled>
+                      {getLocaleValue({
+                        language: languageStore.store.language,
+                        locales: contactForm._allExaminationLocales,
+                      })}
+                    </option>
+                    {getLocaleValue({
+                      language: languageStore.store.language,
+                      locales: contactForm._allExaminationTypesLocales,
+                    }).map((item, index) => (
+                      <option
+                        key={index}
+                        value={item.examinationType}
+                      >
+                        {item.examinationType}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <LoadCanvasTemplate/>
                 <div className='center'>
-                  <input placeholder="Enter Captcha Value" name="user-captcha-input" type="text" className='contact-form__capcha-input' ref={inputEl}/>
+                  <input placeholder={getLocaleValue({
+                      language: languageStore.store.language,
+                      locales: contactForm._allCaptchaPlaceholderLocales,
+                    })} name="user-captcha-input" type="text" className='contact-form__capcha-input' ref={inputEl}/>
                 </div>
                 <div className='center'>
                   <button className="cta cta--dark" type="submit">
@@ -138,6 +177,26 @@ const query =
         _allCtaTitleLocales {
           locale
           value
+        }
+        _allExaminationLocales {
+          value
+          locale
+        }
+        _allExaminationTypesLocales {
+          locale
+          value {
+            examinationType
+          }
+        }
+        _allOfficeLocationLocales {
+          value
+          locale
+        }
+        _allOfficeLocationItemsLocales {
+          locale
+          value {
+            officeLocationItem
+          }
         }
         background {
           url
