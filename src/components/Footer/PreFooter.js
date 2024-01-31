@@ -48,7 +48,7 @@ const PreFooter = () => (
             </div>
             <div className="pre-footer__item pre-footer__item--email">
               <span className="pre-footer__title">Email</span>
-              <a href="mailto:fahrschule2drive@gmx.de">fahrschule2drive@gmx.de</a>
+              <a href="mailto:info@fahrschule-2drive.de">info@fahrschule-2drive.de</a>
             </div>
           </div>
         </Wrapper>
