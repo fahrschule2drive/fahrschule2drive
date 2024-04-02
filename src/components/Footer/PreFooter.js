@@ -22,6 +22,12 @@ const PreFooter = () => (
           <div className="pre-footer__content">
             <address className="pre-footer__item pre-footer__item--address">
               <span className="pre-footer__title">
+                Fahrschule 2Drive Marzahn
+              </span>
+              <a href="https://maps.app.goo.gl/yPKzTtEtS1sMDRQn7" target="_blank" rel="noreferrer">
+                Allee der Kosmonauten 35A, 12681 Berlin
+              </a>
+              <span className="pre-footer__title">
                 Fahrschule 2Drive Ostkreuz
               </span>
               <a href="https://www.google.com/maps/place/Neue+Bahnhofstra%C3%9Fe+5,+10245+Berlin/@52.505331,13.4689149,17.5z/data=!4m5!3m4!1s0x47a84ef0dbcfa363:0x7714e55b01314e2c!8m2!3d52.505326!4d13.4697742" target="_blank" rel="noreferrer">

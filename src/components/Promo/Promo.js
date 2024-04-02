@@ -17,6 +17,10 @@ import './Promo.scss';
 const Promo = () => {
   const languageStore = useContext(LanguageContext);
 
+  const a = (a) => {
+    console.log(a);
+  }
+
   return (
     <StaticQuery
       query={query}
@@ -27,6 +31,7 @@ const Promo = () => {
           className="promo"
           style={{ backgroundImage: `url(${promo.background.url})` }}
         >
+          {true && a(promo)}
           <Wrapper>
             <h1
               className="promo__title"
